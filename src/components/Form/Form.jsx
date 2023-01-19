@@ -1,6 +1,8 @@
 import {useState} from 'react';
+import { useSelector } from 'react-redux';
 
 function Form({addCreatureFunction}){
+    const elementList = useSelector(state => state.elementList);
 
     const [newCreatureName, setNewCreatureName] = useState('');
     const [newCreatureOrigin, setNewCreatureOrigin] = useState('');
@@ -15,6 +17,7 @@ function Form({addCreatureFunction}){
 
     return (
         <>
+        <h1>Element list = {JSON.stringify(elementList)}</h1>
             <h2>Add Creaturezzzzzzzzz</h2>
             <form onSubmit={handleSubmit}>
                 <label>Name:</label>

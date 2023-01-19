@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 import CreatureList from '../CreatureList/CreatureList';
 import Form from '../Form/Form'
@@ -6,7 +7,9 @@ import Form from '../Form/Form'
 import './App.css';
 
 function App () {
- 
+  // const reduxStore = useSelector(store => store);
+  const count = useSelector(store => store.count)
+
   const [creatureList, setCreatureList] = useState([]);
   // const [newCreatureName, setNewCreatureName] = useState('');
   // const [newCreatureOrigin, setNewCreatureOrigin] = useState('');
@@ -60,6 +63,8 @@ function App () {
   
   return (
     <div className="App">
+      {/* <div>{JSON.stringify(reduxStore)}</div> */}
+      <div>Count is: {count}</div>
       <Form addCreatureFunction={handleSubmit}/>
       <CreatureList creatureListProp={creatureList} />
     </div>
